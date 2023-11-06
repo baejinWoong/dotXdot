@@ -20,10 +20,15 @@ button {
   background-color: transparent;
 }
 
+textarea,
 input {
   border: none;
   background-color: transparent;
   outline: none;
+}
+
+textarea {
+  resize: none;
 }
 
 p {
