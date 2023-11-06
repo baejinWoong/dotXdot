@@ -1,0 +1,40 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #32110f;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+p {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.root {
+  position: relative;
+}
+

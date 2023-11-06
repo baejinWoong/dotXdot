@@ -1,0 +1,93 @@
+button {
+  &.signin {
+    background-color: #32110f;
+    font-feature-settings: "clig" off, "liga" off;
+    color: #ffffff;
+    height: 52px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 150%;
+    border-radius: 12px;
+    position: relative;
+    .icon {
+      position: absolute;
+      left: 14px;
+      top: calc(50% - 10px);
+    }
+  }
+}
+
+.signIn {
+  &.wrap {
+    justify-content: space-between;
+  }
+
+  p {
+    color: rgba(50, 17, 15, 0.8);
+  }
+
+  .signInInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    p {
+      &.title {
+        color: rgba(50, 17, 15, 0.8);
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Pretendard Variable;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%; /* 30px */
+      }
+    }
+
+    .inputBox {
+      .inputWrap {
+        position: relative;
+        padding: 15px 0 15px 2px;
+        border-bottom: 1px solid rgba(16, 16, 16, 0.2);
+        input {
+          width: 100%;
+          font-size: 14px;
+          line-height: 150%;
+          letter-spacing: -0.28px;
+        }
+
+        .delete {
+          position: absolute;
+          color: rgba(50, 17, 15, 0.4);
+          text-align: right;
+          font-feature-settings: "clig" off, "liga" off;
+          font-family: Spoqa Han Sans Neo;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%; /* 18px */
+          letter-spacing: -0.24px;
+          bottom: calc(50% - 10px);
+          right: 6px;
+        }
+      }
+
+      .errorText {
+        color: #d02026;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Pretendard Variable;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: -0.12px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .signInBottom {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+}
+

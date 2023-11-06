@@ -1,0 +1,15 @@
+.layout {
+  &.wrap {
+    padding: 16px;
+    background-color: #fdf9ef;
+    height: 720px;
+    width: 360px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}
+
