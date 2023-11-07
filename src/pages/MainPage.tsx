@@ -4,7 +4,7 @@ import MainPageWrap from "../components/common/MainPageWrap";
 import { ChromePicker, ColorResult, RGBColor } from "react-color";
 import "../styles/mainPage.scss";
 import styled from "styled-components";
-import { Kakao, LinkIcon } from "../images/svg";
+import { CloseIcon, Kakao, LinkIcon } from "../images/svg";
 
 const xList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
@@ -53,6 +53,11 @@ const Xcontent = (props: x_content) => {
     setIsWrightMessage(true);
   };
 
+  const closeAllHandler = () => {
+    setIsColorPicker(false);
+    setIsWrightMessage(false);
+  };
+
   return (
     <>
       <XcontentComponent
@@ -61,6 +66,11 @@ const Xcontent = (props: x_content) => {
         $color={color}
       />
       <Modal open={isColorPicker}>
+        <div className="exit">
+          <div className="iconWrap" onClick={closeAllHandler}>
+            <CloseIcon />
+          </div>
+        </div>
         <div className="contentPopupCard">
           <ChromePicker
             color={userOverWrightcolor}
@@ -75,6 +85,11 @@ const Xcontent = (props: x_content) => {
       </Modal>
 
       <Modal open={isWrightMessage}>
+        <div className="exit">
+          <div className="iconWrap" onClick={closeAllHandler}>
+            <CloseIcon />
+          </div>
+        </div>
         <div className="contentPopupCard message">
           <p>11.11데이 메세지를 전하세요</p>
           <div className="inputBox">
