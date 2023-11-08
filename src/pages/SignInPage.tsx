@@ -2,7 +2,11 @@ import React from "react";
 import SinglePageWrap from "../components/common/SinglePageWrap";
 import "../styles/components/signIn.scss";
 import { useRecoilState } from "recoil";
-import { accessTokenRecoil, alertModalRecoil } from "../recoil/atom";
+import {
+  accessTokenRecoil,
+  alertModalRecoil,
+  userNameRecoil,
+} from "../recoil/atom";
 import { snsSignIn } from "../api/login";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +14,7 @@ import { useNavigate } from "react-router-dom";
  *
  */
 const SignInPage = () => {
-  const [signUserName, setSignUserName] = React.useState<string>();
+  const [signUserName, setSignUserName] = useRecoilState(userNameRecoil);
   const [errorText, setErrorText] = React.useState<string>();
   const [accessToken] = useRecoilState(accessTokenRecoil);
   const [, setAlertState] = useRecoilState(alertModalRecoil);
@@ -49,7 +53,6 @@ const SignInPage = () => {
 
   React.useEffect(() => {
     if (!accessToken) {
-      console.log(accessToken);
       setAlertState({
         isOpen: true,
         alertText:
@@ -59,6 +62,7 @@ const SignInPage = () => {
         },
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -90,4 +94,3 @@ const SignInPage = () => {
 };
 
 export default SignInPage;
-

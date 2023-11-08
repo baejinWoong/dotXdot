@@ -4,6 +4,8 @@ import {
   I_confirmModalStateType,
   I_tableStateType,
   I_oathAccessToken,
+  I_remainCnt,
+  I_userName,
 } from "./interface";
 
 export const loaderModalState: I_loaderModalStateType = {
@@ -28,3 +30,7 @@ export const tableState: I_tableStateType = {
 
 export const accessTokenState: I_oathAccessToken = "";
 
+
+export const remainCntState: I_remainCnt = 0;
+
+export const userNameState: I_userName = "";

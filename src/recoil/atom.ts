@@ -4,7 +4,9 @@ import {
   alertModalState,
   confirmModalState,
   loaderModalState,
+  remainCntState,
   tableState,
+  userNameState,
 } from "./defaultValue";
 
 export const ExampleState = atom({
@@ -35,5 +37,15 @@ export const tableRecoil = atom({
 export const accessTokenRecoil = atom({
   key: "accessTokenState",
   default: accessTokenState,
+});
+
+export const remainCntRecoil = atom({
+  key: "remainCntState",
+  default: remainCntState,
+});
+
+export const userNameRecoil = atom({
+  key: "userNameState",
+  default: userNameState,
 });
 

@@ -7,7 +7,13 @@
     width: 100%;
     top: 0;
 
-    .doit {
+    
+    button {
+      display: flex;
+      align-items: center;
+    }
+
+    .dot {
       &.wrap {
         display: flex;
         align-items: center;
@@ -16,7 +22,8 @@
       }
 
       p {
-        color: rgba(50, 17, 15, 0.8);
+        color: rgba(50, 17, 15, 0.80);
+        font-family: Pretendard Variable;
         font-size: 16px;
         font-style: normal;
         font-weight: 500;
@@ -50,13 +57,17 @@
   &.wrap {
     position: absolute;
     height: 720px;
-    width: 70%;
+    width: 75%;
     background-color: #fdf9ef;
-    right: calc(-16px - 70%);
+    right: calc(-16px - 80%);
     top: -16px;
-    z-index: 3;
+    z-index: 16;
     transition: 0.5s;
     padding: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+
 
     &.active {
       right: -16px;
@@ -65,6 +76,57 @@
     .title {
       display: flex;
       justify-content: space-between;
+    }
+
+    .linkWrap {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 50%;
+
+      p {
+        color: rgba(50, 17, 15, 0.80);
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Pretendard Variable;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 150%;
+        cursor: pointer;
+
+        &.disable {
+          color: rgba(50, 17, 15, 0.40);
+        }
+      }
+    }
+
+    .infoWrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 50%;
+      p {
+        color: rgba(50, 17, 15, 0.40);
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Pretendard Variable;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 19.5px */
+        letter-spacing: -0.26px;
+      }
+    }
+
+    .seasonWrap {
+      margin-top: 50%;
+      color: rgba(50, 17, 15, 0.40);
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Pretendard Variable;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 19.5px */
+      letter-spacing: -0.26px;
     }
   }
 
@@ -76,6 +138,7 @@
     right: -16px;
     transition: 0.5s;
     background: rgba(0, 0, 0, 0);
+    z-index: 15;
 
     &.active {
       background: rgba(0, 0, 0, 0.5);

@@ -4,7 +4,7 @@ import { Kakao } from "../../images/svg";
 import { snsSignIn } from "../../api/login";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { accessTokenRecoil } from "../../recoil/atom";
+import { accessTokenRecoil, remainCntRecoil } from "../../recoil/atom";
 
 declare global {
   interface Window {
@@ -17,6 +17,7 @@ declare global {
  */
 const KakaoButton = () => {
   const [, setAccessToken] = useRecoilState(accessTokenRecoil);
+  const [, setRemainCnt] = useRecoilState(remainCntRecoil);
   const router = useNavigate();
 
   const kakaoLoginHandler = async () => {
@@ -33,7 +34,9 @@ const KakaoButton = () => {
       accessToken: token,
     }).then((response) => {
       if (response.data.status.code === "E20003") {
+        setRemainCnt(Number(response.data.data.remainCnt));
         router(`/${response.data.data.name}`);
+        window.localStorage.setItem("oathToken", token);
       } else if (response.data.status.code === "E30001") {
         setAccessToken(token);
         router("/signIn");
@@ -64,4 +67,3 @@ const KakaoButton = () => {
 };
 
 export default KakaoButton;
-

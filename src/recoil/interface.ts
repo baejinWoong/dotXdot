@@ -22,3 +22,6 @@ export interface I_tableStateType {
 
 export type I_oathAccessToken = string;
 
+export type I_remainCnt = number;
+
+export type I_userName = string;

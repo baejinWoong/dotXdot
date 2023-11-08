@@ -17,4 +17,3 @@ const LoginResult = () => {
 };
 
 export default LoginResult;
-
