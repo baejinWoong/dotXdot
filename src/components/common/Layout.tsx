@@ -17,16 +17,15 @@ const Layout = (props: layout_props) => {
 
   const router = useNavigate();
 
-  if (
-    !window.sessionStorage.getItem("Authorization") &&
-    location.pathname !== "/login" &&
-    location.pathname !== "/loginResult" &&
-    location.pathname !== "/signIn"
-  ) {
-    router("/login");
-  }
-
   React.useEffect(() => {
+    if (
+      !window.sessionStorage.getItem("Authorization") &&
+      location.pathname !== "/login" &&
+      location.pathname !== "/loginResult" &&
+      location.pathname !== "/signIn"
+    ) {
+      router("/login");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -9,8 +9,8 @@ import MessageListPage from "./pages/MessageListPage";
 
 function App() {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path="/Login" element={<LoginPage />}></Route>
           <Route path="/LoginResult" element={<LoginResult />}></Route>
@@ -18,8 +18,8 @@ function App() {
           <Route path="/:userId" element={<MainPage />} />
           <Route path="/messages" element={<MessageListPage />} />
         </Routes>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
