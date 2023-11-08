@@ -10,9 +10,9 @@ import { snsSignIn } from "../../api/login";
  */
 const Header = () => {
   const [remainCnt, setRemainCnt] = useRecoilState(remainCntRecoil);
-  const [, setSignUserName] = useRecoilState(userNameRecoil);
+  const [signUserName, setSignUserName] = useRecoilState(userNameRecoil);
 
-  if (window.localStorage.getItem("oathToken")) {
+  if (window.localStorage.getItem("oathToken") && signUserName === "") {
     const token = window.localStorage.getItem("oathToken") as string;
     snsSignIn({
       accessToken: token,

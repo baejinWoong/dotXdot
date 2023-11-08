@@ -18,3 +18,8 @@ export interface I_getPaintProps {
   x: number,
   y: number,
 }
+
+export interface I_getPaintsProps {
+  lastId?: number,
+  pageSize: number,
+}

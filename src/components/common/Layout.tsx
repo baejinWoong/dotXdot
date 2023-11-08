@@ -26,8 +26,7 @@ const Layout = (props: layout_props) => {
     ) {
       router("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router]);
 
   return (
     <div className="layout wrap">
