@@ -3,7 +3,7 @@ import React from "react";
 import "../../styles/layout.scss";
 import useAxiosInterceptor from "../../util/useAxiosInterceptor";
 import AlertModal from "../modal/AlertModal";
-import { snsSignIn } from "../../api/login";
+import { useNavigate } from "react-router-dom";
 
 interface layout_props {
   children: React.ReactElement | React.ReactElement[] | React.ReactNode;
@@ -15,12 +15,15 @@ interface layout_props {
 const Layout = (props: layout_props) => {
   useAxiosInterceptor();
 
+  const router = useNavigate();
+
   if (
     !window.sessionStorage.getItem("Authorization") &&
     location.pathname !== "/login" &&
-    location.pathname !== "/loginResult"
+    location.pathname !== "/loginResult" &&
+    location.pathname !== "/signIn"
   ) {
-    location.replace("/login");
+    router("/login");
   }
 
   React.useEffect(() => {

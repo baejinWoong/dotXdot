@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import SignInPage from "./pages/SignInPage";
 import LoginResult from "./pages/LoginResult";
 import MainPage from "./pages/MainPage";
+import MessageListPage from "./pages/MessageListPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/LoginResult" element={<LoginResult />}></Route>
           <Route path="/signIn" element={<SignInPage />}></Route>
           <Route path="/:userId" element={<MainPage />} />
+          <Route path="/messages" element={<MessageListPage />} />
         </Routes>
       </BrowserRouter>
     </Layout>

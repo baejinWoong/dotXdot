@@ -40,8 +40,22 @@ const Hamburger = () => {
           </button>
         </div>
         <div className="linkWrap">
-          <p onClick={() => router(`/${signUserName}`)}>마이페이지</p>
-          <p onClick={() => router(`/messages`)}>메세지 목록</p>
+          <p
+            onClick={() => {
+              router(`/${signUserName}`);
+              closeHamburgerHandler();
+            }}
+          >
+            마이페이지
+          </p>
+          <p
+            onClick={() => {
+              router(`/messages`);
+              closeHamburgerHandler();
+            }}
+          >
+            메세지 목록
+          </p>
           <p>닷닷돗돗노션</p>
           <p className="disable" onClick={logoutHandler}>
             로그아웃
