@@ -1,15 +1,17 @@
 import React from "react";
 import Layout from "./components/common/Layout";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import SignInPage from "./pages/SignInPage";
 import LoginResult from "./pages/LoginResult";
 import MainPage from "./pages/MainPage";
 import MessageListPage from "./pages/MessageListPage";
+import RouteChangeTracker from "./util/RouteChangeTracker";
+
 
 function App() {
+  RouteChangeTracker();
   return (
-    <BrowserRouter>
       <Layout>
         <Routes>
           <Route path="/" element={<></>}></Route>
@@ -20,7 +22,6 @@ function App() {
           <Route path="/messages" element={<MessageListPage />} />
         </Routes>
       </Layout>
-    </BrowserRouter>
   );
 }
 
