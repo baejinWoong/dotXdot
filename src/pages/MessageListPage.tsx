@@ -28,7 +28,7 @@ const Item = (props: I_Item) => {
     <div className="item">
       <p>{data.name}</p>
       <p className={data.hasRead ? "read" : "noRead"}>
-        {data.hasRead ? "읽음" : "왜 안읽어"}
+        {data.hasRead ? "읽음" : "읽지 않음"}
       </p>
     </div>
   );
