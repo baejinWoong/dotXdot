@@ -102,14 +102,14 @@ export const DotdotLogo = () => (
 
 export const SmallDotdotLogo = () => (
   <svg
-    width="44"
-    height="28"
-    viewBox="0 0 44 28"
+    width="80"
+    height="51"
+    viewBox="0 0 80 51"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
-    <rect width="44" height="28" fill="url(#pattern0)" />
+    <rect width="80" height="51" fill="url(#pattern0)" />
     <defs>
       <pattern
         id="pattern0"

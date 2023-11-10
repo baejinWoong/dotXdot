@@ -12,7 +12,7 @@ export const postPaint = async (params: I_postPaintProps) => {
 };
 
 export const getPaint = async (params: I_getPaintProps) => {
-  const url = `/paint?x=${params.x}&y=${params.y}&id=${params.targetMemberSeq}`;
+  const url = `/paint?pixelId=${params.pixelId}`;
   return await http.get(url);
 };
 

@@ -35,12 +35,11 @@ const Item = (props: I_Item) => {
   const { data } = props;
 
   const [isContent, setIsContent] = React.useState<boolean>(false);
+  const [content, setContent] = React.useState<string>("");
 
   const openContentsHandler = () => {
     void getPaint({
-      x: data.x,
-      y: data.y,
-      targetMemberSeq: data.pixelId,
+      pixelId: data.pixelId,
     });
     setIsContent(true);
   };
@@ -92,7 +91,7 @@ const MessageListPage = (props: Props) => {
   const getNextScrollData = () => {
     setIsLoad(true);
     void getPaints({
-      pageSize: 8,
+      pageSize: 20,
       lastId,
     }).then((res) => {
       if (res.data?.status.code === "E20000") {
@@ -123,13 +122,15 @@ const MessageListPage = (props: Props) => {
 
   React.useEffect(() => {
     void getPaints({
-      pageSize: 8,
+      pageSize: 20,
     }).then((res) => {
       if (res.data?.status.code === "E20000") {
-        const lastIndex = (res.data.data as I_getPaintResult[]).length;
-        setMessages(res.data.data);
-        setGetMessageCnt(lastIndex);
-        setLastId((res.data.data as I_getPaintResult[])[lastIndex - 1].pixelId);
+        const lastIndex = (res.data.data.list as I_getPaintResult[]).length;
+        setMessages(res.data.data.list);
+        setGetMessageCnt(res.data.data.count);
+        setLastId(
+          (res.data.data.list as I_getPaintResult[])[lastIndex - 1].pixelId
+        );
       }
     });
   }, []);

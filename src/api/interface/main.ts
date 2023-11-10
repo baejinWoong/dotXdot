@@ -14,9 +14,7 @@ export interface I_postPaintProps {
 }
 
 export interface I_getPaintProps {
-  targetMemberSeq: number,
-  x: number,
-  y: number,
+  pixelId: number,
 }
 
 export interface I_getPaintsProps {

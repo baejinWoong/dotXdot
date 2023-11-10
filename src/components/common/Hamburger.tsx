@@ -23,7 +23,7 @@ const Hamburger = () => {
 
   const OpenNotionHandler = () => {
     window.open(
-      "https://dotxdot.notion.site/c955460a65654df6a2352d3127d6e574?pvs=4"
+      "https://dotxdot.notion.site/dot-X-dot-d10036e362ac4fab820cc84a03f5995c?pvs=4"
     );
   };
 
@@ -68,8 +68,8 @@ const Hamburger = () => {
           </p>
         </div>
         <div className="infoWrap">
-          <p>만든이 정보 : 김닷닷, 배돗돗, 이닷돗</p>
-          <p>광고문의 : @email.com</p>
+          <p>만든이 정보 : 김도엽, 배진웅, 이정호</p>
+          <p>광고문의 : gltlvl12@gmail.com</p>
         </div>
         <p className="seasonWrap">@2023 dotxdot</p>
       </div>

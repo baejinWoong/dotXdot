@@ -24,6 +24,7 @@ interface x_content {
   a?: number;
   isMine: boolean;
   isData: boolean;
+  pixelId?: number;
   reloadCallback: () => void;
 }
 
@@ -40,11 +41,12 @@ const Xcontent = (props: x_content) => {
     g = 17,
     b = 15,
     a = 0.1,
-    targetMemberSeq,
     xData,
     yData,
     isMine,
     isData,
+    pixelId,
+    targetMemberSeq,
     reloadCallback,
   } = props;
 
@@ -76,9 +78,7 @@ const Xcontent = (props: x_content) => {
   const openColorPickerHandler = () => {
     if (isData) {
       void getPaint({
-        x: xData,
-        y: yData,
-        targetMemberSeq,
+        pixelId: pixelId as number,
       }).then((res) => {
         if (res.data?.status.code === "E20000") {
           setContent(res.data.data.contents);
@@ -228,6 +228,7 @@ const MainPage = () => {
     Array<{
       targetMemberSeq: number;
       contents: string;
+      pixelId: number;
       x: number;
       y: number;
       r: number;
@@ -294,7 +295,6 @@ const MainPage = () => {
   React.useEffect(() => {
     const kakao = (window as any).Kakao;
     if (!kakao.isInitialized()) {
-      console.log("123");
       kakao.init(process.env.REACT_APP_KAKAO_KEY);
     }
   }, []);
@@ -312,6 +312,7 @@ const MainPage = () => {
                 return (
                   <Xcontent
                     targetMemberSeq={targetMemberSeq}
+                    pixelId={findValue.pixelId}
                     xData={xData}
                     yData={yData}
                     r={findValue.r}
@@ -340,20 +341,22 @@ const MainPage = () => {
           </div>
         ))}
       </div>
-      <div className="button wrap">
-        <button className="link" onClick={linkCopyHandler}>
-          <LinkIcon />
-          <span>링크복사</span>
-        </button>
-        <button
-          className="kakao"
-          onClick={kakaoLinkShareHandler}
-          id="kakaotalk-sharing-btn"
-        >
-          <Kakao />
-          <span>카카오톡 공유</span>
-        </button>
-      </div>
+      {isMine && (
+        <div className="button wrap">
+          <button className="link" onClick={linkCopyHandler}>
+            <LinkIcon />
+            <span>링크복사</span>
+          </button>
+          <button
+            className="kakao"
+            onClick={kakaoLinkShareHandler}
+            id="kakaotalk-sharing-btn"
+          >
+            <Kakao />
+            <span>카카오톡 공유</span>
+          </button>
+        </div>
+      )}
     </MainPageWrap>
   );
 };
