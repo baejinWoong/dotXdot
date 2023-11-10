@@ -4,7 +4,7 @@ import MessagePageWrap from "../components/common/MessagePageWrap";
 
 import "../styles/messagePage.scss";
 import "../styles/mainPage.scss";
-import { getPaints } from "../api/main";
+import { getPaint, getPaints } from "../api/main";
 import { CloseIcon } from "../images/svg";
 import { useRecoilState } from "recoil";
 import { getMessageCntRecoli } from "../recoil/atom";
@@ -17,6 +17,8 @@ interface I_Item {
     hasRead: boolean;
     name: string;
     pixelId: number;
+    x: number;
+    y: number;
   };
 }
 
@@ -25,6 +27,8 @@ interface I_getPaintResult {
   hasRead: boolean;
   name: string;
   pixelId: number;
+  x: number;
+  y: number;
 }
 
 const Item = (props: I_Item) => {
@@ -33,6 +37,11 @@ const Item = (props: I_Item) => {
   const [isContent, setIsContent] = React.useState<boolean>(false);
 
   const openContentsHandler = () => {
+    void getPaint({
+      x: data.x,
+      y: data.y,
+      targetMemberSeq: data.pixelId,
+    });
     setIsContent(true);
   };
 

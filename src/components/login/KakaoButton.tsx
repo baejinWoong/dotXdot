@@ -41,6 +41,7 @@ const KakaoButton = () => {
       if (response.data.status.code === "E20003") {
         setRemainCnt(Number(response.data.data.remainCnt));
         setSignUserName(response.data.data.name);
+        window.localStorage.setItem("oathToken", token);
         if (window.localStorage.getItem("initPage")) {
           const targetpage = window.localStorage.getItem("initPage") as string;
           router(targetpage);
@@ -48,7 +49,6 @@ const KakaoButton = () => {
         } else {
           router(`/${response.data.data.name}`);
         }
-        window.localStorage.setItem("oathToken", token);
       } else if (response.data.status.code === "E30001") {
         setAccessToken(token);
         router("/signIn");

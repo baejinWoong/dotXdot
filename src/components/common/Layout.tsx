@@ -25,8 +25,10 @@ const Layout = (props: layout_props) => {
     ) {
       if (!(window.location.pathname === "/")) {
         window.localStorage.setItem("initPage", window.location.pathname);
+        router("/login");
+      } else {
+        router("/login");
       }
-      router("/login");
     }
   }, [router]);
 
