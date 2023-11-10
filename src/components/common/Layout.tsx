@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import React from "react";
 import "../../styles/layout.scss";
 import useAxiosInterceptor from "../../util/useAxiosInterceptor";
@@ -20,10 +19,13 @@ const Layout = (props: layout_props) => {
   React.useEffect(() => {
     if (
       !window.sessionStorage.getItem("Authorization") &&
-      location.pathname !== "/login" &&
-      location.pathname !== "/loginResult" &&
-      location.pathname !== "/signIn"
+      window.location.pathname !== "/login" &&
+      window.location.pathname !== "/loginResult" &&
+      window.location.pathname !== "/signIn"
     ) {
+      if (!(window.location.pathname === "/")) {
+        window.localStorage.setItem("initPage", window.location.pathname);
+      }
       router("/login");
     }
   }, [router]);

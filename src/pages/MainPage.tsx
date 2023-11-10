@@ -258,6 +258,29 @@ const MainPage = () => {
     });
   };
 
+  const kakaoLinkShareHandler = () => {
+    if ((window as any).Kakao) {
+      const kakao = (window as any).Kakao;
+      // if (!kakao.isInitialized()) {
+      //   kakao.init(process.env.REACT_APP_KAKAO_KEY);
+      // }
+      kakao.Share.createDefaultButton({
+        container: "#kakaotalk-sharing-btn",
+        objectType: "feed",
+        content: {
+          title: "dot X dot",
+          description: "",
+          imageUrl: "https://dotxdot.xyz/thumnail.jpg",
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href,
+          },
+        },
+        buttons: [],
+      });
+    }
+  };
+
   React.useEffect(() => {
     void memberInfo({ nickname: memberNickname }).then((res) => {
       if (res.data?.status.code === "E20000") {
@@ -267,6 +290,14 @@ const MainPage = () => {
       }
     });
   }, [memberNickname]);
+
+  React.useEffect(() => {
+    const kakao = (window as any).Kakao;
+    if (!kakao.isInitialized()) {
+      console.log("123");
+      kakao.init(process.env.REACT_APP_KAKAO_KEY);
+    }
+  }, []);
 
   return (
     <MainPageWrap>
@@ -310,11 +341,15 @@ const MainPage = () => {
         ))}
       </div>
       <div className="button wrap">
-        <button className="link">
+        <button className="link" onClick={linkCopyHandler}>
           <LinkIcon />
-          <span onClick={linkCopyHandler}>링크복사</span>
+          <span>링크복사</span>
         </button>
-        <button className="kakao">
+        <button
+          className="kakao"
+          onClick={kakaoLinkShareHandler}
+          id="kakaotalk-sharing-btn"
+        >
           <Kakao />
           <span>카카오톡 공유</span>
         </button>

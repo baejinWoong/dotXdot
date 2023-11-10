@@ -6,6 +6,7 @@ import {
   I_oathAccessToken,
   I_remainCnt,
   I_userName,
+  I_getMessageCnt,
 } from "./interface";
 
 export const loaderModalState: I_loaderModalStateType = {
@@ -32,5 +33,7 @@ export const accessTokenState: I_oathAccessToken = "";
 
 
 export const remainCntState: I_remainCnt = 0;
+
+export const getMessageCntState: I_getMessageCnt = 0;
 
 export const userNameState: I_userName = "";

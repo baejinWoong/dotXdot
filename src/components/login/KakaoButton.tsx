@@ -22,7 +22,7 @@ declare global {
 const KakaoButton = () => {
   const [, setAccessToken] = useRecoilState(accessTokenRecoil);
   const [, setRemainCnt] = useRecoilState(remainCntRecoil);
-  const [signUserName, setSignUserName] = useRecoilState(userNameRecoil);
+  const [, setSignUserName] = useRecoilState(userNameRecoil);
   const router = useNavigate();
 
   const kakaoLoginHandler = async () => {
@@ -41,7 +41,13 @@ const KakaoButton = () => {
       if (response.data.status.code === "E20003") {
         setRemainCnt(Number(response.data.data.remainCnt));
         setSignUserName(response.data.data.name);
-        router(`/${response.data.data.name}`);
+        if (window.localStorage.getItem("initPage")) {
+          const targetpage = window.localStorage.getItem("initPage") as string;
+          router(targetpage);
+          window.localStorage.removeItem("initPage");
+        } else {
+          router(`/${response.data.data.name}`);
+        }
         window.localStorage.setItem("oathToken", token);
       } else if (response.data.status.code === "E30001") {
         setAccessToken(token);

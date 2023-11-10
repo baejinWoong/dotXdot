@@ -3,6 +3,7 @@ import {
   accessTokenState,
   alertModalState,
   confirmModalState,
+  getMessageCntState,
   loaderModalState,
   remainCntState,
   tableState,
@@ -42,6 +43,11 @@ export const accessTokenRecoil = atom({
 export const remainCntRecoil = atom({
   key: "remainCntState",
   default: remainCntState,
+});
+
+export const getMessageCntRecoli = atom({
+  key: "getMessageCntState",
+  default: getMessageCntState,
 });
 
 export const userNameRecoil = atom({

@@ -79,6 +79,15 @@ const useAxiosInterceptor = () => {
             return false;
           },
         });
+      }  else if (errorCode === "E40404") {
+        setAlertModalState({
+          alertText: ERRORCODE_TO_TEXT_JSON['E40404'],
+          isOpen: true,
+          clickButtonCallback: () => {
+            window.sessionStorage.clear();
+            window.location.href = "/login";
+          },
+        });
       } else {
         setAlertModalState({
           alertText:

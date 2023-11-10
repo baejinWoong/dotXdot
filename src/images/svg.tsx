@@ -29,14 +29,14 @@ export const DotdotLogo = () => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
-    <g clip-path="url(#clip0_107_2915)">
+    <g clipPath="url(#clip0_107_2915)">
       <g filter="url(#filter0_d_107_2915)">
         <rect
           x="8.97852"
           width="262.048"
           height="177.974"
           fill="url(#pattern0)"
-          shape-rendering="crispEdges"
+          shapeRendering="crispEdges"
         />
       </g>
     </g>
@@ -48,9 +48,9 @@ export const DotdotLogo = () => (
         width="284.048"
         height="232.974"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"

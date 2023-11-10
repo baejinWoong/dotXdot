@@ -8,7 +8,7 @@ import { userNameRecoil } from "../../recoil/atom";
  *
  */
 const Hamburger = () => {
-  const [signUserName, setSignUserName] = useRecoilState(userNameRecoil);
+  const [signUserName] = useRecoilState(userNameRecoil);
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const router = useNavigate();
@@ -19,6 +19,12 @@ const Hamburger = () => {
 
   const closeHamburgerHandler = () => {
     setIsOpen(false);
+  };
+
+  const OpenNotionHandler = () => {
+    window.open(
+      "https://dotxdot.notion.site/c955460a65654df6a2352d3127d6e574?pvs=4"
+    );
   };
 
   const logoutHandler = () => {
@@ -56,12 +62,7 @@ const Hamburger = () => {
           >
             메세지 목록
           </p>
-          <p>
-            <a href={"https://dotxdot.notion.site/c955460a65654df6a2352d3127d6e574?pvs=4"}
-               style={{textDecoration: 'none', color:'inherit'}}>
-              닷닷돗돗노션
-            </a>
-          </p>
+          <p onClick={OpenNotionHandler}>닷닷돗돗노션</p>
           <p className="disable" onClick={logoutHandler}>
             로그아웃
           </p>

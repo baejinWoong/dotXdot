@@ -24,4 +24,6 @@ export type I_oathAccessToken = string;
 
 export type I_remainCnt = number;
 
+export type I_getMessageCnt = number;
+
 export type I_userName = string;

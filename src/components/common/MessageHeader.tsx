@@ -1,16 +1,21 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { remainCntRecoil, userNameRecoil } from "../../recoil/atom";
+import {
+  getMessageCntRecoli,
+  remainCntRecoil,
+  userNameRecoil,
+} from "../../recoil/atom";
 import { snsSignIn } from "../../api/login";
 import Hamburger from "./Hamburger";
 
 interface Props {}
 
 function MessageHeader(props: Props) {
-  const [remainCnt, setRemainCnt] = useRecoilState(remainCntRecoil);
+  const [, setRemainCnt] = useRecoilState(remainCntRecoil);
   const [signUserName, setSignUserName] = useRecoilState(userNameRecoil);
+  const [getMessageCnt] = useRecoilState(getMessageCntRecoli);
 
-  if (window.localStorage.getItem("oathToken")) {
+  if (window.localStorage.getItem("oathToken") && signUserName === "") {
     const token = window.localStorage.getItem("oathToken") as string;
     snsSignIn({
       accessToken: token,
@@ -27,7 +32,7 @@ function MessageHeader(props: Props) {
       <div className="dot wrap">
         <p>{signUserName} 님이 받은 메세지는</p>
         <div className="colorCount">
-          <span>{remainCnt}</span>
+          <span>{getMessageCnt}</span>
         </div>
       </div>
       <Hamburger />
